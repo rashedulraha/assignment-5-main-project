@@ -23,7 +23,63 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
-  <body>
-    <h1>Hello world</h1>
+  <body class="bg-[#f5fff6]">
+    <!--! Header Section -->
+    <header class="bg-white py-4 shadow-sm">
+      <div
+        class="container mx-auto max-w-[1440px] px-4 flex items-center justify-between"
+      >
+        <!--! Logo Section -->
+        <div class="flex items-center gap-3">
+          <figure class="w-12 h-12 rounded-lg flex items-center justify-center">
+            <img src="./assets/logo.png" alt="project main logo" />
+          </figure>
+          <div>
+            <h1
+              class="font-extrabold text-2xl leading-6 text-[#006747] capitalize"
+            >
+              Emergency <br />
+              service
+            </h1>
+          </div>
+        </div>
+        <!--! Navigation Section -->
+        <nav class="flex items-center gap-4">
+          <!--? Hearts Counter -->
+          <div
+            class="p-3 bg-[#41ff6b1a] flex rounded-full gap-3 w-[123px] h-[52px] justify-center items-center"
+          >
+            <p id="hearts-increment" class="text-black text-2xl font-extrabold">
+              0
+            </p>
+            <i class="fa-solid fa-heart text-2xl text-red-500"></i>
+          </div>
+          <!--? Coins Counter -->
+          <div
+            id="Coins-counter"
+            class="p-3 bg-[#41ff6b1a] flex rounded-full gap-3 w-[123px] h-[52px] justify-center items-center"
+          >
+            <p id="coins-count" class="text-black text-2xl font-extrabold">
+              100
+            </p>
+            <div
+              class="w-9 h-9 bg-yellow-400 rounded-full flex items-center justify-center"
+            >
+              <span class="text-xs font-bold">TK</span>
+            </div>
+          </div>
+          <!--? Copy Counter -->
+          <div
+            class="p-3 bg-[#00a63e] flex rounded-full gap-3 w-[123px] h-[52px] justify-center items-center"
+          >
+            <p class="text-white capitalize text-2xl font-bold">
+              <span id="copy-count">0</span> copy
+            </p>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ! Start main section  -->
   </body>
 </html>
