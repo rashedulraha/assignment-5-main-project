@@ -148,3 +148,30 @@ function updateCallHistory() {
       .join("");
   }
 }
+
+//! Show notification
+
+function showNotification(message, type) {
+  // Create notification element
+  const notification = document.createElement("div");
+  notification.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg text-white transform transition-transform duration-300 translate-y-20 ${
+    type === "success" ? "bg-green-500" : "bg-red-500"
+  }`;
+  notification.textContent = message;
+
+  // Add to DOM
+  document.body.appendChild(notification);
+
+  // Animate in
+  setTimeout(() => {
+    notification.classList.remove("translate-y-20");
+  }, 10);
+
+  // Remove after 3 seconds
+  setTimeout(() => {
+    notification.classList.add("translate-y-20");
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 3000);
+}
