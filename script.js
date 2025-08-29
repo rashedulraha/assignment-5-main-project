@@ -82,3 +82,31 @@ document.querySelectorAll(".call-btn").forEach((btn) => {
     }
   });
 });
+
+// ?Handle copy button clicks
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    // Get service number
+    const card = this.closest(".bg-white");
+    const serviceNumber = card.querySelector(".service-number").textContent;
+
+    // Copy to clipboard
+    navigator.clipboard
+      .writeText(serviceNumber)
+      .then(() => {
+        // Increment copy counter
+        copyCount++;
+        copyCounter.textContent = copyCount;
+
+        // Show success message
+        showNotification(
+          `Number ${serviceNumber} copied to clipboard!`,
+          "success"
+        );
+      })
+      .catch((err) => {
+        // Show error message
+        showNotification("Failed to copy number", "error");
+      });
+  });
+});
