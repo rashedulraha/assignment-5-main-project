@@ -110,3 +110,41 @@ document.querySelectorAll(".copy-btn").forEach((btn) => {
       });
   });
 });
+
+// ! Clear call history
+clearHistoryBtn.addEventListener("click", function () {
+  callHistory = [];
+  localStorage.removeItem("callHistory");
+  updateCallHistory();
+  showNotification("Call history cleared", "success");
+});
+
+// Update call history display
+function updateCallHistory() {
+  if (callHistory.length === 0) {
+    emptyHistoryMessage.style.display = "block";
+    callHistoryContent.innerHTML = "";
+    callHistoryContent.appendChild(emptyHistoryMessage);
+  } else {
+    emptyHistoryMessage.style.display = "none";
+
+    callHistoryContent.innerHTML = callHistory
+      .map(
+        (call) => `
+            <div class="p-3 bg-gray-50 rounded-lg">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="font-medium text-gray-900">${call.service}</h4>
+                  <p class="text-sm text-gray-500">${call.number}</p>
+                </div>
+                <div class="text-right">
+                  <p class="text-xs text-gray-500">${call.time}</p>
+                  <p class="text-xs text-gray-500">${call.date}</p>
+                </div>
+              </div>
+            </div>
+          `
+      )
+      .join("");
+  }
+}
