@@ -175,3 +175,5 @@ function showNotification(message, type) {
     }, 300);
   }, 3000);
 }
+// !Initialize call history on page load
+updateCallHistory();
